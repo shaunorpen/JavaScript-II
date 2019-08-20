@@ -65,6 +65,22 @@ console.log(myCounter2());
 // ==== Challenge 4: Create a counter function with an object that can increment and decrement ====
 const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
+  return {
+    count: 0,
+    increment: function () {
+      this.count++;
+    },
+    decrement: function () {
+      this.count--;
+    }
+  }
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
 }
+
+const myCounter3 = counterFactory();
+console.log(myCounter3.count + ' initial value');
+myCounter3.increment();
+console.log(myCounter3.count + ' after increment');
+myCounter3.decrement();
+console.log(myCounter3.count + ' after decrement');
